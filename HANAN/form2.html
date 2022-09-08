@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="survay.css">
+<title>Save Web Form Data to Spreadsheets - Location eveluation Form</title>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script>
+function SubForm (){
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/fi4Z055Ug8nCcN8k/',
+        type:'post',
+        data:$("#myForm").serializeArray(),
+        success: function(){
+          alert("Form Data Submitted :)")
+        },
+        error: function(){
+          alert("There was an error :(")
+        }
+    });
+}
+</script>
+</head>
+<body id="back">
+    <h1>Location eveluation</h1>
+  <form id="myForm">
+    <label>Staff Name</label>
+    <br/>
+    <input name="staff_name" />
+    <br/>
+    <label>MRN</label>
+    <br/>
+    <input name="mrn" />
+    <br/>
+    <label>Location</label>
+    <br/>
+    <input type="radio" id="location" name="location" value="acc" /> ACC<br/>
+    <input type="radio" id="location" name="location" value="oncology" /> ONCOLOGY<br/>
+    <input type="radio" id="location" name="location" value="cardiac" /> CARDIAC<br/>
+    <br/>
+ <p>please evaulate the following with 9 being the highest and 0 as the lowest</p>
+    <label>Environment and Facilities</label>
+    <br/>
+    <input type="radio" id="environment and facilities" name="environment and facilities" value="0-3" /> 0-3<br/>
+    <input type="radio" id="environment and facilities" name="environment and facilities" value="4-6" /> 4-6<br/>
+    <input type="radio" id="environment and facilities" name="environment and facilities" value="7-9" /> 7-9<br/>
+    <br/>
+    <label>Time access to service</label>
+    <br/>
+    <input type="radio" id="time access to service" name="time access to service" value="0-3" /> 0-3<br/>
+    <input type="radio" id="time access to service" name="time access to service" value="4-6" /> 4-6<br/>
+    <input type="radio" id="time access to service" name="time access to service" value="7-9" /> 7-9<br/>
+    <br/>
+    <label>Staff experience and engagement </label>
+    <br/>
+    <input type="radio" id="staff experience and engagement" name="staff experience and engagement" value="0-3" /> 0-3<br/>
+    <input type="radio" id="staff experience and engagement" name="staff experience and engagement" value="4-6" /> 4-6<br/>
+    <input type="radio" id="staff experience and engagement" name="staff experience and engagement" value="7-9" /> 7-9<br/>
+    <br/>
+    <label>Information and communication </label>
+    <br/>
+    <input type="radio" id="information and communication" name="information and communication" value="0-3" /> 0-3<br/>
+    <input type="radio" id="information and communication" name="information and communication" value="4-6" /> 4-6<br/>
+    <input type="radio" id="information and communication" name="information and communication" value="7-9" /> 7-9<br/>
+    <br/>
+    <label>Patient voice and response </label>
+    <br/>
+    <input type="radio" id="patient voice and response" name="patient voice and response" value="0-3" /> 0-3<br/>
+    <input type="radio" id="patient voice and response" name="patient voice and response" value="4-6" /> 4-6<br/>
+    <input type="radio" id="patient voice and response" name="patient voice and response" value="7-9" /> 7-9<br/>
+    <br/>
+  </form>
+  <button onclick="SubForm()">Submit</button>
+</body>
+</html>
